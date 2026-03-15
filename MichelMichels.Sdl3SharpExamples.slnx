@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project
+      Path="src/MichelMichels.Sdl3SharpExamples.Clear/MichelMichels.Sdl3SharpExamples.Clear.csproj" />
+    <Project
+      Path="src/MichelMichels.Sdl3SharpExamples.StreamingTextures/MichelMichels.Sdl3SharpExamples.StreamingTextures.csproj" />
+  </Folder>
+</Solution>

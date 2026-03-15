@@ -6,9 +6,9 @@ using Sdl3Sharp.Video.Coloring;
 using Sdl3Sharp.Video.Drawing;
 using Sdl3Sharp.Video.Rendering;
 using Sdl3Sharp.Video.Windowing;
-using Timer = Sdl3Sharp.Timing.Timer;
+using Sdl3Sharp.Timing;
 
-namespace MichelMichels.Sdl3Sharp.Examples.StreamingTextures;
+namespace MichelMichels.Sdl3SharpExamples.StreamingTextures;
 
 public class App : AppBase
 {
@@ -37,7 +37,7 @@ public class App : AppBase
 
     protected override AppResult OnIterate(Sdl sdl)
     {
-        ulong now = Timer.MillisecondTicks;
+        ulong now = Sdl3Sharp.Timing.Timer.MillisecondTicks;
 
         // we'll have some color move around over a few seconds.
         float direction = ((now % 2000) >= 1000) ? 1.0f : -1.0f;

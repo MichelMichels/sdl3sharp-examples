@@ -1,4 +1,4 @@
-﻿using MichelMichels.Sdl3Sharp.Examples.StreamingTextures;
+﻿using MichelMichels.Sdl3SharpExamples.StreamingTextures;
 using Sdl3Sharp;
 
 using Sdl sdl = new(static builder => builder
