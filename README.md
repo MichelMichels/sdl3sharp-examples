@@ -11,6 +11,7 @@ I like C# and wanted to broaden my horizons by learning a low level rendering li
 Following examples are ported:
 
 * 01 Clear
+* 02 Primitives
 * 07 Streaming Textures
 
 ## Acknowledgements
