@@ -13,6 +13,7 @@ Following examples are ported:
 * 01 Clear
 * 02 Primitives
 * 03 Lines
+* 04 Points
 * 07 Streaming Textures
 
 ## Acknowledgements
