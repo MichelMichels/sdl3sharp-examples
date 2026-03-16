@@ -14,6 +14,7 @@ Following examples are ported:
 * 02 Primitives
 * 03 Lines
 * 04 Points
+* 05 Rectangles
 * 07 Streaming Textures
 
 ## Acknowledgements

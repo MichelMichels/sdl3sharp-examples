@@ -4,6 +4,7 @@
     <Project Path="src/MichelMichels.Sdl3SharpExamples.Lines/MichelMichels.Sdl3SharpExamples.Lines.csproj" />
     <Project Path="src/MichelMichels.Sdl3SharpExamples.Points/MichelMichels.Sdl3SharpExamples.Points.csproj" />
     <Project Path="src/MichelMichels.Sdl3SharpExamples.Primitives/MichelMichels.Sdl3SharpExamples.Primitives.csproj" />
+    <Project Path="src/MichelMichels.Sdl3SharpExamples.Rectangles/MichelMichels.Sdl3SharpExamples.Rectangles.csproj" />
     <Project Path="src/MichelMichels.Sdl3SharpExamples.StreamingTextures/MichelMichels.Sdl3SharpExamples.StreamingTextures.csproj" />
   </Folder>
 </Solution>
