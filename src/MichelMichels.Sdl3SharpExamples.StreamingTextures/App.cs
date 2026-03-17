@@ -41,7 +41,7 @@ public class App : AppBase
 
         // we'll have some color move around over a few seconds.
         float direction = ((now % 2000) >= 1000) ? 1.0f : -1.0f;
-        float scale = ((float)(((int)(now % 1000)) - 500) / 500.0f) * direction;
+        float scale = (((int)(now % 1000)) - 500) / 500.0f * direction;
 
         /* To update a streaming texture, you need to lock it first. This gets you access to the pixels.
            Note that this is considered a _write-only_ operation: the buffer you get from locking
@@ -68,7 +68,7 @@ public class App : AppBase
         }
 
         // as you can see from this, rendering draws over whatever was drawn before it. 
-        mRenderer.DrawColor = new Color<byte>(66, 66, 66, 255); // grey, full alpha
+        mRenderer.DrawColor = new Color<byte>(66, 66, 66, Color.OpaqueAlphaByte); // grey, full alpha
         mRenderer.TryClear(); // start with a blank canvas.
 
         /* Just draw the static texture a few times. You can think of it like a

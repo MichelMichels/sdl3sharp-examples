@@ -2,9 +2,9 @@ using Sdl3Sharp;
 using Sdl3Sharp.Video.Rendering;
 using Sdl3Sharp.Video.Windowing;
 using Sdl3Sharp.Events;
-using Math = Sdl3Sharp.Utilities.Math;
 using Timer = Sdl3Sharp.Timing.Timer;
 using Sdl3Sharp.Video.Drawing;
+using Sdl3Sharp.Video.Coloring;
 
 namespace MichelMichels.Sdl3SharpExamples.Rectangles;
 
@@ -36,7 +36,7 @@ public class App : AppBase
         float scale = (((int)(now % 1000)) - 500) / 500.0f * direction;
 
         // as you can see from this, rendering draws over whatever was drawn before it.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 0, 0, 255);  // black, full alpha        
+        mRenderer.DrawColor = new Color<byte>(0, 0, 0, Color.OpaqueAlphaByte);  // black, full alpha        
         mRenderer.TryClear();  // start with a blank canvas.
 
         /* Rectangles are comprised of set of X and Y coordinates, plus width and
@@ -46,7 +46,7 @@ public class App : AppBase
 
         // Let's draw a single rectangle (square, really).
         rectangles.Add(new Rect<float>(100, 100, 100 + (100 * scale), 100 + (100 * scale)));
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(255, 0, 0, 255);  // red, full alpha 
+        mRenderer.DrawColor = new Color<byte>(255, 0, 0, Color.OpaqueAlphaByte);  // red, full alpha 
         mRenderer.TryRenderRect(rectangles[0]);
 
         // Now let's draw several rectangles with one function call.
@@ -60,12 +60,12 @@ public class App : AppBase
             rectangles.Add(new Rect<float>(centerX, centerY, scaledSize, scaledSize));
         }
 
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 255, 0, 255);  // green, full alpha 
+        mRenderer.DrawColor = new Color<byte>(0, 255, 0, Color.OpaqueAlphaByte);  // green, full alpha 
         mRenderer.TryRenderRects(rectangles.Skip(1).ToArray()); // draw three rectangles at once 
 
         // those were rectangle _outlines_, really. You can also draw _filled_ rectangles!
         rectangles.Add(new Rect<float>(400, 50, 100 + (100 * scale), 50 + (50 * scale)));
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 0, 255, 255);  /* blue, full alpha */
+        mRenderer.DrawColor = new Color<byte>(0, 0, 255, Color.OpaqueAlphaByte);  /* blue, full alpha */
         mRenderer.TryRenderFilledRect(rectangles.Last());
 
         /* ...and also fill a bunch of rectangles at once... */
@@ -78,7 +78,7 @@ public class App : AppBase
             float y = WINDOW_HEIGHT - h;
             bottomRectangles.Add(new Rect<float>(x, y, w, h));
         }
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(255, 255, 255, 255);  /* white, full alpha */
+        mRenderer.DrawColor = new Color<byte>(255, 255, 255, Color.OpaqueAlphaByte);  /* white, full alpha */
         mRenderer.TryRenderFilledRects(bottomRectangles.ToArray());
 
         // put the newly-cleared rendering on the screen.

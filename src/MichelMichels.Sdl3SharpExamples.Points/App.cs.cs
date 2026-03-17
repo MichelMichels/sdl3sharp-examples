@@ -2,11 +2,10 @@ using Sdl3Sharp;
 using Sdl3Sharp.Video.Rendering;
 using Sdl3Sharp.Video.Windowing;
 using Sdl3Sharp.Events;
-using Math = Sdl3Sharp.Utilities.Math;
 using Timer = Sdl3Sharp.Timing.Timer;
 using Random = Sdl3Sharp.Utilities.Random;
 using Sdl3Sharp.Video.Drawing;
-using Sdl3Sharp.Timing;
+using Sdl3Sharp.Video.Coloring;
 
 namespace MichelMichels.Sdl3SharpExamples.Points;
 
@@ -83,9 +82,9 @@ public class App : AppBase
         lastTime = now;
 
         // as you can see from this, rendering draws over whatever was drawn before it.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 0, 0, 255); // black, full alpha
+        mRenderer.DrawColor = new Color<byte>(0, 0, 0, Color.OpaqueAlphaByte); // black, full alpha
         mRenderer.TryClear();  // start with a blank canvas.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(255, 255, 255, 255);  // white, full alpha
+        mRenderer.DrawColor = new Color<byte>(255, 255, 255, Color.OpaqueAlphaByte);  // white, full alpha
         mRenderer.TryRenderPoints(points);  // draw all the points! 
 
         /* You can also draw single points with SDL_RenderPoint(), but it's

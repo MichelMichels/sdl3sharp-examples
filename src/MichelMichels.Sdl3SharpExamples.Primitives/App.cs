@@ -2,9 +2,9 @@ using Sdl3Sharp;
 using Sdl3Sharp.Video.Rendering;
 using Sdl3Sharp.Video.Windowing;
 using Sdl3Sharp.Events;
-using Math = Sdl3Sharp.Utilities.Math;
-using Timer = Sdl3Sharp.Timing.Timer;
 using Sdl3Sharp.Video.Drawing;
+using Random = Sdl3Sharp.Utilities.Random;
+using Sdl3Sharp.Video.Coloring;
 
 namespace MichelMichels.Sdl3SharpExamples.Primitives;
 
@@ -28,8 +28,8 @@ public class App : AppBase
         // set up some random points
         for (int i = 0; i < points.Length; i++)
         {
-            float x = (Sdl3Sharp.Utilities.Random.NextFloat() * 440.0f) + 100.0f;
-            float y = (Sdl3Sharp.Utilities.Random.NextFloat() * 280.0f) + 100.0f;
+            float x = (Random.NextFloat() * 440.0f) + 100.0f;
+            float y = (Random.NextFloat() * 280.0f) + 100.0f;
             points[i] = new Point<float>(x, y);
         }
 
@@ -39,11 +39,11 @@ public class App : AppBase
     protected override AppResult OnIterate(Sdl sdl)
     {
         // as you can see from this, rendering draws over whatever was drawn before it.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(33, 33, 33, 255); // dark gray, full alpha
+        mRenderer.DrawColor = new Color<byte>(33, 33, 33, Color.OpaqueAlphaByte); // dark gray, full alpha
         mRenderer.TryClear();
 
         // draw a filled rectangle in the middle of the canvas.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 0, 255, 255); // blue, full alpha
+        mRenderer.DrawColor = new Color<byte>(0, 0, 255, Color.OpaqueAlphaByte); // blue, full alpha
 
         int x = 100;
         int y = 100;
@@ -53,17 +53,17 @@ public class App : AppBase
         mRenderer.TryRenderFilledRect(rect);
 
         // draw some points across the canvas.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(255, 0, 0, 255); // red, full alpha
+        mRenderer.DrawColor = new Color<byte>(255, 0, 0, Color.OpaqueAlphaByte); // red, full alpha
         mRenderer.TryRenderPoints(points);
 
         // draw a unfilled rectangle in-set a little bit.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 255, 0, 255); // green full alpha
+        mRenderer.DrawColor = new Color<byte>(0, 255, 0, Color.OpaqueAlphaByte); // green full alpha
 
         Rect<float> inner = new(rect.Left + 30, rect.Top + 30, rect.Width - 60, rect.Height - 60);
         mRenderer.TryRenderRect(inner);
 
         // draw two lines in an X across the whole canvas.
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(255, 255, 0, 255); // yellow, full alpha
+        mRenderer.DrawColor = new Color<byte>(255, 255, 0, Color.OpaqueAlphaByte); // yellow, full alpha
         mRenderer.TryRenderLine(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         mRenderer.TryRenderLine(0, WINDOW_HEIGHT, WINDOW_WIDTH, 0);
 

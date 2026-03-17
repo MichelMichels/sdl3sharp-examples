@@ -3,8 +3,8 @@ using Sdl3Sharp.Video.Rendering;
 using Sdl3Sharp.Video.Windowing;
 using Sdl3Sharp.Events;
 using Math = Sdl3Sharp.Utilities.Math;
-using Timer = Sdl3Sharp.Timing.Timer;
 using Sdl3Sharp.Video.Drawing;
+using Sdl3Sharp.Video.Coloring;
 
 namespace MichelMichels.Sdl3SharpExamples.Lines;
 
@@ -47,11 +47,11 @@ public class App : AppBase
         ];
 
         // as you can see from this, rendering draws over whatever was drawn before it. 
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(100, 100, 100, 255);  // grey, full alpha
+        mRenderer.DrawColor = new Color<byte>(100, 100, 100, Color.OpaqueAlphaByte);  // grey, full alpha
         mRenderer.TryClear(); // start with a blank canvas
 
         // You can draw lines, one at a time, like these brown ones...
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(127, 49, 32, 255);
+        mRenderer.DrawColor = new Color<byte>(127, 49, 32, Color.OpaqueAlphaByte);
 
         mRenderer.TryRenderLine(240, 450, 400, 450);
         mRenderer.TryRenderLine(240, 356, 400, 356);
@@ -59,8 +59,8 @@ public class App : AppBase
         mRenderer.TryRenderLine(400, 356, 400, 450);
 
         // You can also draw a series of connected lines in a single batch... 
-        mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(0, 255, 0, 255);
-        mRenderer.TryRenderLines(new ReadOnlySpan<Point<float>>(points.ToArray()));
+        mRenderer.DrawColor = new Color<byte>(0, 255, 0, Color.OpaqueAlphaByte);
+        mRenderer.TryRenderLines(points.ToArray());
 
         // here's a bunch of lines drawn out from a center point in a circle.
         // we randomize the color of each line, so it functions as animation.
@@ -74,7 +74,7 @@ public class App : AppBase
             byte r = (byte)Sdl3Sharp.Utilities.Random.Next(256);
             byte g = (byte)Sdl3Sharp.Utilities.Random.Next(256);
             byte b = (byte)Sdl3Sharp.Utilities.Random.Next(256);
-            mRenderer.DrawColor = new Sdl3Sharp.Video.Coloring.Color<byte>(r, g, b, 255);
+            mRenderer.DrawColor = new Color<byte>(r, g, b, Color.OpaqueAlphaByte);
             mRenderer.TryRenderLine(x, y, x + Math.Cos(radius) * size, y + Math.Sin(radius) * size);
         }
 

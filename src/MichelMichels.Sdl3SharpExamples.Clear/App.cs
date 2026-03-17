@@ -4,6 +4,7 @@ using Sdl3Sharp.Video.Windowing;
 using Sdl3Sharp.Events;
 using Math = Sdl3Sharp.Utilities.Math;
 using Timer = Sdl3Sharp.Timing.Timer;
+using Sdl3Sharp.Video.Coloring;
 
 namespace MichelMichels.Sdl3SharpExamples.Clear;
 
@@ -34,7 +35,7 @@ public class App : AppBase
         float green = (float)(0.5 + 0.5 * Math.Sin(now + Math.Pi * 2 / 3));
         float blue = (float)(0.5 + 0.5 * Math.Sin(now + Math.Pi * 4 / 3));
 
-        mRenderer.DrawColorFloat = new Sdl3Sharp.Video.Coloring.Color<float>(red, green, blue, 1); // new color, full alpha
+        mRenderer.DrawColorFloat = new Color<float>(red, green, blue, 1); // new color, full alpha
 
         // clear the window to the draw color.
         mRenderer.TryClear();
